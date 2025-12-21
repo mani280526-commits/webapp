@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block main %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="">
+            Employee no
+            <input type="text" name="eno">
+        </label><br><br>
+        <label for="">
+            Employee name
+            <input type="text" name="ename">
+        </label><br><br>
+        <label for="">
+            Employee Salary
+            <input type="text" name="esal">
+        </label><br><br>
+        <label for="">
+            Departments 
+            <select name="dept" id="">
+                {% for dept in departments %}
+                    <option value="{{dept.deptno}}">{{dept.deptname}}</option>
+                {% endfor %}
+            </select><br><br>
+        </label><br><br>
+        <label for="">
+            profile pic
+            <input type="file" name="epic"> 
+        </label><br><br>
+        <label for="">
+            video
+            <input type="file" name="evideo">
+        </label><br><br>
+        <input type="submit" value="insert">
+    </form>
+    {% for msg in messages %}
+        <p>{{msg}}</p>
+    {% endfor %}
+{% endblock %}

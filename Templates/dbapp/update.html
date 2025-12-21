@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="">
+        <p>Employee no: {{employee.empno}}</p>
+    </label><br><br>
+    <label for="">
+        employee name
+        <input type="text" value="{{employee.empname}}" name="ename">
+    </label><br><br>
+    <label for="">
+        employee salary
+        <input type="text" value="{{employee.salary}}" name="esal">
+    </label><br><br>
+    <label for="">
+        Department
+        <select name="dept">
+            {% for dept in departments %}
+                <option value="{{ dept.deptno }}"
+                    {% if employee.dept and employee.dept.deptno == dept.deptno %}
+                        selected
+                    {% endif %}>
+
+                    {{ dept.deptname }}
+                </option> 
+            {% endfor %}       
+                    
+        </select>
+    </label><br><br>
+    <label for="">
+        profile pic
+        <input type="file" name="epic">
+    </label><br><br>
+    <label for="">
+        video
+        <input type="file" name="evideo">
+    </label><br><br>
+    <input type="submit" value="update">
+</form>
+{% for msg in messages %}
+    <p>{{msg}}</p>
+{% endfor %}
+{% endblock %}

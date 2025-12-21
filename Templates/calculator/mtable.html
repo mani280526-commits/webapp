@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{%block main%}
+            <form action="" method="post">
+                {% csrf_token %}
+            <label for="">
+                <input type="text" name="t1">
+                <input type="submit" value="generate">
+            </label>
+            </form>
+            {% for st in result %}
+               <p>{{st}}</p>
+
+            {% endfor %}
+{% endblock %}
+        

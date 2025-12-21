@@ -1,0 +1,28 @@
+*{
+    margin: 0px;
+    padding: opx;
+}
+header{
+    height: 12vh;
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+header h1{
+    color: black;
+}
+main{
+    text-align: center;
+    padding-top: 30px;
+}
+main img{
+    width: 100px;
+    height: 250px;
+}
+main video{
+    width: 220px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+
+}

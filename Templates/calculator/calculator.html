@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+            <form action="" method="post" onsubmit="return validate();">
+                {% csrf_token %}
+            <label for="">
+                value1
+                <input type="text" name="t1" id="t1">
+            </label><br><br>
+            <label for="">
+                value2
+                <input type="text" name="t2" id="t2">
+            </label><br><br>
+            <input type="submit" value="addition" name="add">
+            <input type="submit" value="substraction" name="sub">
+            <input type="submit" value="multi" name="multi">
+            <input type="submit" value="division" name="div">
+            </form>
+            {% if action == 'Addition' %}
+            <p style="color: blue;">{{action}} - {{result}}</p>
+            {% elif action == 'Substraction' %}
+            <p style="color: red;">{{action}} - {{result}}</p>
+            {% elif action == 'Multiplication' %}
+            <p style="color: purple;">{{action}} - {{result}}</p>
+            {%else%}
+            <p style="color: aqua;">{{action}} - {{result}}</p>
+            {% endif %}
+{% endblock %}
+<!-- click to js-->
+{% block js %}
+    <script src="{% static 'js/validate.js' %}"></script>
+{% endblock %}
+        

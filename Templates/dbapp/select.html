@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  <h1><a href="{% url 'inserturl' %}">Add+</a></h1>
+    <table border="1px" cellspacing="0px">
+        <tr>
+            <th>Employee no</th>
+            <th> Employee name</th>
+            <th> Employee Salary</th>
+            <th> department</th>
+            <th> profile</th>
+            <th> video</th>
+        </tr>
+    {% for emp in employees %}
+       <tr>
+        <td>{{emp.empno}}</td>
+        <td><a href="{% url 'updateurl' emp.empno %}">{{emp.empname}}</a></td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.dept.deptname}}</td>
+        <td>{% if emp.profile_pic %}
+                <img src="{{emp.profile_pic.url}}" alt="">
+            {% endif %} 
+        </td>
+        <td>
+            {% if emp.video %}
+                <video src="{{emp.video.url}}" autoplay controls></video>
+            {% endif %}
+        </td>
+        <td><a href="{% url 'delecturl' emp.empno %}">delect</a></td>
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
