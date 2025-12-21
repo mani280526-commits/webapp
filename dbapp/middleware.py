@@ -5,7 +5,7 @@ class CustomMiddleware:
         self.get_response = get_response
     def __call__(self,request):
        #validate
-       if request.method=='POST' and 'insert' in request.path_info:
+       if request.method=='POST' and 'db/insert' in request.path_info:
            if int(request.POST['esal'])<0:
                #raise ValidationError('Negative salary is not allowed')
                return redirect('selecturl')
