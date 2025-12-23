@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'dbapp',
     'sessionapp',
     'classapp',
+    'api',
 ]
 
 MIDDLEWARE = [

@@ -27,6 +27,7 @@ urlpatterns = [
     path('db/',include('dbapp.urls')),
     path('session/', include('sessionapp.urls')),
     path('class/',include('classapp.urls')),
+    path('api/',include('api.urls')),
 ]
 
 urlpatterns = urlpatterns+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
