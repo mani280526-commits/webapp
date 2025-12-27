@@ -3,6 +3,7 @@
 from rest_framework import serializers
 from dbapp.models import Employee,Department
 from rest_framework.exceptions import ValidationError
+from django.contrib.auth.models import User
 class EmpSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
@@ -32,3 +33,8 @@ class CustomSerializer(serializers.Serializer):
         instance.dept=dobj
         instance.save()
         return instance
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username','password','email']
+
